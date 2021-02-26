@@ -25,31 +25,31 @@ jobs:
             sudo -E apt-get -qq install git openjdk-8-jdk wget
 
        
-       - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/Appdataux/ErfanGSIs-VelanGSIs.git
+       - name: Clone PhhGSI Source Code
+         run: git clone --recurse-submodules https://github.com/phhusson/treble_experimentations.git
        
-       - name: Setting up ErfanGSI requirements
+       - name: Setting up PhhGSI requirements
          run: |
-              sudo chmod -R 777 ErfanGSIs
-              cd ErfanGSIs
+              sudo chmod -R 777 PhhGSIs
+              cd PhhGSIs
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
+         run: sudo ./PhhGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
        - name: Zip Aonly and upload 
          run: |
               mkdir final
-              sudo chmod -R 777 ErfanGSIs/output
-              zip -r ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z ErfanGSIs/output/*-Aonly-*.img
+              sudo chmod -R 777 PhhGSIs/output
+              zip -r PhhGSIs/output/$ZIP_NAME-GSI-Aonly.7z PhhGSIs/output/*-Aonly-*.img
               curl -sL https://git.io/file-transfer | sh
-              ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z          
+              ./transfer $MIR PhhGSIs/output/$ZIP_NAME-GSI-Aonly.7z          
        - name: Zip AB and upload 
          run: |
-              zip -r ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z ErfanGSIs/output/*-AB-*.img
-              ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z      
+              zip -r PhhGSIs/output/$ZIP_NAME-GSI-AB.7z PhhGSIs/output/*-AB-*.img
+              ./transfer $MIR PhhGSIs/output/$ZIP_NAME-GSI-AB.7z      
        - name: Print build info
          run: |
-              cat ErfanGSIs/output/*-Aonly-*.txt
+              cat PhhGSIs/output/*-Aonly-*.txt
          
             
