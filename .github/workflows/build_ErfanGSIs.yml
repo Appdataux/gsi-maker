@@ -1,3 +1,7 @@
+
+
+
+
 name: Building GSI..
 
 on:
@@ -5,11 +9,11 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://dl.google.com/developers /android/rvc/images/gsi/gsi_gms _arm64-exp-RPB3.200720.005 -6705141-60b63c6a.zip
-  ROM_NAME: Generic
+  ROM_URL: https://hell.godseye.workers.dev/MMX_Whyred_21.1.6_whyred_Shubh_21.1.6_10.zip
+  ROM_NAME: MIUI
   TZ: Asia/Kolkata
   MIR: wet
-  ZIP_NAME: huaweihi6250v1
+  ZIP_NAME: mıuımx12.5
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,31 +29,31 @@ jobs:
             sudo -E apt-get -qq install git openjdk-8-jdk wget
 
        
-       - name: Clone PhhGSI Source Code
-         run: git clone --recurse-submodules https://github.com/phhusson/treble_experimentations.git
+       - name: Clone ErfanGSI Source Code
+         run: git clone --recurse-submodules https://github.com/berkays0733/ErfanGSIs.git  ErfanGSIs
        
-       - name: Setting up PhhGSI requirements
+       - name: Setting up ErfanGSI requirements
          run: |
-              sudo chmod -R 777 PhhGSIs
-              cd PhhGSIs
+              sudo chmod -R 777 ErfanGSIs
+              cd ErfanGSIs
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./PhhGSIs/url2GSI.sh $ROM_URL $ROM_NAME
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
        - name: Zip Aonly and upload 
          run: |
               mkdir final
-              sudo chmod -R 777 PhhGSIs/output
-              zip -r PhhGSIs/output/$ZIP_NAME-GSI-Aonly.7z PhhGSIs/output/*-Aonly-*.img
+              sudo chmod -R 777 ErfanGSIs/output
+              zip -r ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z ErfanGSIs/output/*-Aonly-*.img
               curl -sL https://git.io/file-transfer | sh
-              ./transfer $MIR PhhGSIs/output/$ZIP_NAME-GSI-Aonly.7z          
+              ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-Aonly.7z          
        - name: Zip AB and upload 
          run: |
-              zip -r PhhGSIs/output/$ZIP_NAME-GSI-AB.7z PhhGSIs/output/*-AB-*.img
-              ./transfer $MIR PhhGSIs/output/$ZIP_NAME-GSI-AB.7z      
+              zip -r ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z ErfanGSIs/output/*-AB-*.img
+              ./transfer $MIR ErfanGSIs/output/$ZIP_NAME-GSI-AB.7z      
        - name: Print build info
          run: |
-              cat PhhGSIs/output/*-Aonly-*.txt
+              cat ErfanGSIs/output/*-Aonly-*.txt
          
             
