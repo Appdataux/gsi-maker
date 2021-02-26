@@ -6,10 +6,10 @@ on:
     
 env:
   ROM_URL: https://github.com/phhusson/treble_experimentations/releases/download/v300.m/system-roar-arm64-ab-vndklite-vanilla.img.xz
-  ROM_NAME: WorkOS
+  ROM_NAME: LineageOS
   TZ: Asia/Kolkata
   MIR: wet
-  ZIP_NAME: mıuımx12.5
+  ZIP_NAME: huaweihi6250v1
 jobs:
   build:
     runs-on: ubuntu-latest
