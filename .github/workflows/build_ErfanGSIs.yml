@@ -10,10 +10,10 @@ on:
     
 env:
   ROM_URL: https://hell.godseye.workers.dev/MMX_Whyred_21.1.6_whyred_Shubh_21.1.6_10.zip
-  ROM_NAME: MIUI
+  ROM_NAME: Generic
   TZ: Asia/Kolkata
   MIR: wet
-  ZIP_NAME: mıuımx12.5
+  ZIP_NAME: mx11
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
 
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/berkays0733/ErfanGSIs.git  ErfanGSIs
+         run: git clone --recurse-submodules https://github.com/Appdataux/ErfanGSIs-VelanGSIs.git  ErfanGSIs
        
        - name: Setting up ErfanGSI requirements
          run: |
