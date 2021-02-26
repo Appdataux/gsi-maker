@@ -5,7 +5,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://github.com/phhusson/treble_experimentations/releases/download/v300.m/system-roar-arm64-ab-vndklite-vanilla.img.xz
+  ROM_URL: https://dl.google.com/developers /android/rvc/images/gsi/gsi_gms _arm64-exp-RPB3.200720.005 -6705141-60b63c6a.zip
   ROM_NAME: LineageOS
   TZ: Asia/Kolkata
   MIR: wet
